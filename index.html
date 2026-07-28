@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+   <div class="brand">
+  <img src="img/Logo joel.png" alt="Happy Shop">
+</div>
+    <nav id="categoryNav"></nav>
+    <button id="cartBtn">
+  <img src="img/bolsa1.png" alt="Carrito" class="cart-icon">
+  <span id="cartCount">0</span>
+</button>
+  </header>
+
+  <section class="hero">
+    <h1>Personalización &amp; ventas de artículos online</h1>
+    <p>Tazas, camisetas, abrigos y termos hechos a tu gusto.</p>
+  </section>
+
+  <main>
+    <div id="productGrid"></div>
+  </main>
+
+  <aside id="drawer">
+  <h3>Tu carrito</h3>
+  <div id="drawerItems"></div>
+  <p class="total-row">Total: <span id="totalPrice">RD$ 0</span></p>
+  <button id="checkoutBtn" onclick="checkoutWhatsApp()">Enviar pedido por WhatsApp</button>
+</aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
