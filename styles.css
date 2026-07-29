@@ -45,21 +45,37 @@ header {
 }
 
 #cartBtn {
-  background: #F4915C;
-  color: white;
+  position: relative;
+  background: transparent;
   border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
+}
+
+#cartBtn svg {
+  width: 30px;
+  height: 30px;
+}
+
+#cartCount {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #0E7A94;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #cartBtn img,
