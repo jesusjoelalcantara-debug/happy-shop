@@ -19,24 +19,8 @@ header {
 }
 
 .brand img {
-  height: 70px;
+  height: 48px;
   object-fit: contain;
-}
-
-.cart-icon {
-  height: 40px;
-  vertical-align:middle;
-  margin-right: 10px;
-}
-
-.brand span {
-  font-size: 22px;
-  font-weight: bold;
-  color: #0E7A94;
-}
-
-.brand b {
-  color: #D9702E;
 }
 
 #categoryNav {
@@ -105,6 +89,8 @@ main {
   text-align: center;
   padding-bottom: 14px;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -112,12 +98,14 @@ main {
   transform: translateY(-4px);
 }
 
-@media (max-width: 480px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px;
-  }
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 12px;
+  box-sizing: border-box;
+  display: block;
 }
 
 .card h3 {
@@ -140,21 +128,18 @@ main {
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.add-btn:hover {
-  background: #D9702E;
-}
-
-.add-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
 }
 
+.add-btn:hover {
+  background: #D9702E;
+}
+
 .add-btn.added {
-  background: #0E7A94; /* celeste oscuro cuando ya está en el carrito */
+  background: #0E7A94;
 }
 
 .add-qty {
@@ -189,6 +174,7 @@ main {
   font-size: 18px;
   text-align: right;
 }
+
 #checkoutBtn {
   background: #25D366;
   color: white;
@@ -203,4 +189,12 @@ main {
 
 #checkoutBtn:hover {
   background: #1DA851;
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
 }
