@@ -21,6 +21,7 @@ header {
 .brand img {
   height: 48px;
   object-fit: contain;
+  display: block;
 }
 
 #categoryNav {
@@ -55,6 +56,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 #cartBtn svg {
@@ -64,8 +66,8 @@ header {
 
 #cartCount {
   position: absolute;
-  top: -2px;
-  right: -2px;
+  top: 0px;
+  right: 0px;
   background: #0E7A94;
   color: white;
   font-size: 12px;
@@ -76,13 +78,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#cartBtn img,
-#cartBtn svg {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
 }
 
 .hero {
@@ -128,6 +123,10 @@ main {
   transform: translateY(-4px);
 }
 
+.img-wrap {
+  position: relative;
+}
+
 .card img {
   width: 100%;
   height: 220px;
@@ -137,6 +136,26 @@ main {
   box-sizing: border-box;
   display: block;
 }
+
+.img-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-nav.prev { left: 8px; }
+.img-nav.next { right: 8px; }
 
 .card h3 {
   font-size: 16px;
@@ -162,6 +181,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 2px;
+  margin: 0 14px;
 }
 
 .add-btn:hover {
@@ -197,6 +217,9 @@ main {
 
 .drawer-item img {
   border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .total-row {
@@ -228,26 +251,3 @@ main {
     padding: 12px;
   }
 }
-.img-wrap {
-  position: relative;
-}
-
-.img-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
-  color: white;
-  border: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.img-nav.prev { left: 8px; }
-.img-nav.next { right: 8px; }
