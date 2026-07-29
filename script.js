@@ -1,6 +1,6 @@
 // ---------- PRODUCTOS REALES ----------
 const products = [
-  { id: 1, name: "Taza blanca personalizada", cat: "Tazas", price: 350, images: ["img/taza1.png"] },
+  { id: 1, name: "Taza blanca personalizada", cat: "Tazas", price: 350, images: ["img/taza1.png", "img/tb2.jpg"] },
   { id: 2, name: "Taza de colores personalizada", cat: "Tazas", price: 450, images: ["img/taza2.png"] },
   { id: 3, name: "Taza mágica personalizada", cat: "Tazas", price: 600, images: ["img/taza3.png"] },
   { id: 4, name: "Abrigo personalizado", cat: "Abrigos", price: 1375, images: ["img/abrigo1.png"] },
