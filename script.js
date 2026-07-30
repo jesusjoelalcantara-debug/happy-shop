@@ -83,6 +83,12 @@ function changeProductImage(id, dir) {
 // ---------- CARRITO ----------
 let cart = {};
 
+// Intentar recuperar el carrito guardado del navegador
+const carritoGuardado = localStorage.getItem('happyshop_cart');
+if (carritoGuardado) {
+  cart = JSON.parse(carritoGuardado);
+}
+
 function addToCart(id) {
   const producto = products.find(p => p.id === id);
   if (cart[id]) {
@@ -105,6 +111,7 @@ function removeFromCart(id) {
 }
 
 function updateCartUI() {
+    localStorage.setItem('happyshop_cart', JSON.stringify(cart));
   const items = Object.values(cart);
   const totalQty = items.reduce((sum, i) => sum + i.qty, 0);
   const totalPrice = items.reduce((sum, i) => sum + i.qty * i.product.price, 0);
