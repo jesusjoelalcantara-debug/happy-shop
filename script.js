@@ -47,7 +47,7 @@ function renderProducts(lista = products) {
           ` : ''}
         </div>
         <h3>${p.name}</h3>
-        <p class="price">RD$ ${p.price}</p>
+        <p class="price">RD$ ${p.price.toLocaleString('en-US')}</p>
         <button class="add-btn" data-id="${p.id}">
           <span class="add-text">Agregar</span>
           <span class="add-qty"></span>
@@ -117,11 +117,17 @@ function updateCartUI() {
   const totalPrice = items.reduce((sum, i) => sum + i.qty * i.product.price, 0);
 
   document.getElementById('cartCount').textContent = totalQty;
-  document.getElementById('totalPrice').textContent = `RD$ ${totalPrice}`;
+  document.getElementById('totalPrice').textContent = `RD$ ${totalPrice.toLocaleString('en-US')}`;
+
+  function vaciarCarrito() {
+  cart = {};
+  updateCartUI();
+  updateAddButtons();
+}
 
   const container = document.getElementById('drawerItems');
   if (items.length === 0) {
-    container.innerHTML = `<p>Tu carrito está vacío 🛍️</p>`;
+    container.innerHTML = `<p>Tu carrito está vacío 😭</p>`;
     return;
   }
   container.innerHTML = items.map(i => `
@@ -158,7 +164,14 @@ function updateAddButtons() {
   });
 }
 
-// ---------- ENVIAR PEDIDO POR WHATSAPP ----------
+// ---------- VACIAR CARRITO DESPUÉS DE UN PEDIDO ----------
+function vaciarCarrito() {
+  cart = {};
+  updateCartUI();
+  updateAddButtons();
+}
+
+// ---------- OPCIÓN 1: ENVIAR PEDIDO POR WHATSAPP ----------
 function checkoutWhatsApp() {
   const items = Object.values(cart);
   if (items.length === 0) {
@@ -178,8 +191,39 @@ function checkoutWhatsApp() {
 
   const numero = "18292306533";
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
   window.open(url, "_blank");
+
+  vaciarCarrito();
+}
+
+// ---------- OPCIÓN 2: ENVIAR PEDIDO A GOOGLE SHEETS + GMAIL ----------
+function checkoutGoogle() {
+  const items = Object.values(cart);
+  if (items.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  let listaProductos = "";
+  let total = 0;
+
+  items.forEach(i => {
+    listaProductos += `${i.product.name} x${i.qty} — RD$ ${i.product.price * i.qty}\n`;
+    total += i.product.price * i.qty;
+  });
+
+  const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxg7ihaPDQ_9bagSeOuiHMojn4lxJJOaGQTKaXxsjgJby6AbOJBBljegOOIBJQoFhn7EQ/exec";
+
+  fetch(URL_SCRIPT, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ productos: listaProductos, total: total })
+  });
+
+  alert("¡Pedido enviado! Te contactaremos pronto.");
+
+  vaciarCarrito();
 }
 
 // ---------- INICIO ----------
