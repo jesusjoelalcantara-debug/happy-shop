@@ -239,6 +239,21 @@ main {
   width: 100%;
   margin-top: 12px;
 }
+#checkoutGoogleBtn {
+  background: #4285F4; /* azul de Google */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#checkoutGoogleBtn:hover {
+  background: #3367D6;
+}
 
 #checkoutBtn:hover {
   background: #1DA851;
@@ -250,4 +265,15 @@ main {
     gap: 10px;
     padding: 12px;
   }
+}
+
+.drawer-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title svg {
+  width: 24px;
+  height: 24px;
 }
