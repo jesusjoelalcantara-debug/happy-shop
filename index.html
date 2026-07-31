@@ -33,10 +33,18 @@
   </main>
 
   <aside id="drawer">
-    <h3>Tu carrito</h3>
+    <h3 class="drawer-title">
+  Tu carrito
+  <svg viewBox="0 0 24 24" fill="none" stroke="#1BB8D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+   </h3>
     <div id="drawerItems"></div>
     <p class="total-row">Total: <span id="totalPrice">RD$ 0</span></p>
     <button id="checkoutBtn" onclick="checkoutWhatsApp()">Enviar pedido por WhatsApp</button>
+    <button id="checkoutGoogleBtn" onclick="checkoutGoogle()">Enviar pedido por correo</button>
   </aside>
 
   <script src="script.js"></script>
